@@ -30,8 +30,19 @@ window.addEventListener('load', () => {
     document.body.style.overflow = '';
   }, 1900);
 });
-// Cegah scroll saat loading
-document.body.style.overflow = 'hidden';
+
+// Cegah scroll saat loading — set SETELAH DOMContentLoaded agar aman di mobile
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.overflow = 'hidden';
+  // Failsafe: paksa reset overflow setelah 3 detik jika window load tidak terpicu
+  setTimeout(() => {
+    const loading = document.getElementById('loading-screen');
+    if (loading && !loading.classList.contains('hidden')) {
+      loading.classList.add('hidden');
+    }
+    document.body.style.overflow = '';
+  }, 3000);
+});
 
 /* ============================================================
    2. NAVBAR SCROLL & ACTIVE LINK
