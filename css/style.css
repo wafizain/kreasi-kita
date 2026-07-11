@@ -170,17 +170,22 @@ input, textarea, select {
 .loader { text-align: center; }
 .loader-logo {
   display: block;
-  width: 72px;
-  height: 72px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: var(--radius-md);
-  color: #fff;
-  font-size: 1.6rem;
-  font-weight: 800;
-  line-height: 72px;
-  text-align: center;
-  margin: 0 auto 20px;
+  width: auto;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 12px;
   animation: pulse 1.2s infinite;
+}
+.loader-brand {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.loader-brand strong {
+  font-weight: 800;
+  color: var(--primary);
 }
 .loader-bar {
   width: 160px;
